@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+body {
+  display: none;
+  margin: 0;
+}
+
+.disable-select {
+  user-select: none;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#card {
+  background: linear-gradient(to right bottom, #138d75, #239c83, #30ab92, #3cbaa1, #48c9b0);
+  background-size: 400% 400%;
+  width: 350px;
+  height: 500px;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    background-position: 0% 50%;
+  }
+  5% {
+    background-position: 100% 50%;
+  }
+  10% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#background {
+  width: 326px;
+  height: 476px;
+  margin: 12px;
+  position: absolute;
+  background: #2E4053;
+  background-image: url(../img/fivem-background.png);
+  filter: blur(1.5px);
+  background-size: cover;
+  overflow: hidden;
+}
+
+#content {
+  width: 326px;
+  height: 476px;
+  margin: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+#title {
+  position: relative;
+  display: block;
+  z-index: 2;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 55px;
+  color: #48c9b0;
+  text-shadow: -1px 5px #ffffff;
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+#second-title {
+  position: relative;
+  display: block;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 55px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: -1px 5px #3cbaa1;
+  text-align: right;
+  margin-right: 10px;
+}
+
+#game-border {
+  position: relative;
+  display: flex;
+  z-index: 2;
+  background: linear-gradient(to right bottom, #138d75, #239c83, #30ab92, #3cbaa1, #48c9b0);
+  background-size: 400% 400%;
+  margin-left: 28px;
+  margin-top: 15px;
+  width: 270px;
+  height: 250px;
+  animation: spin2 5s linear infinite;
+  border-radius: 10px;
+}
+
+@keyframes spin2 {
+  0% {
+    background-position: 100% 50%;
+  }
+  5% {
+    background-position: 0% 50%;
+  }
+  10% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+#game {
+  position: relative;
+  z-index: 3;
+  margin: 12px;
+  width: 248px;
+  height: 226px;
+  background-color: #2E4053;
+}
+
+#game p {
+  text-align: center;
+  top: 50%;
+  margin-top: 30px;
+  font-family: fantasy;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
