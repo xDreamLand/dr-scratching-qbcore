@@ -1,7 +1,7 @@
 local webhook <const> = "https://discord.com/api/webhooks/your-private-key" -- do not share your webhook with others
 local mentionStaffRoleId <const> = nil -- will only mention on possible cheating attempt, set to 'nil' for no mentions 
 
-function sendWebhook(name, identifier, type, value, amount)
+function sendWebhook(name, identifier, type, value, amount, early)
   if not Config.Webhooks.webhooksEnabled then return end
 
   local winMessage <const> = {
@@ -71,7 +71,33 @@ function sendWebhook(name, identifier, type, value, amount)
     }
   }
 
-  if type == 'money' then
+  local earlyMessage <const> = {
+    ["embeds"] = {
+      {
+        ["description"] = "**" .. name .. "** closed out early without scratch the whole ticket. (**" .. name .. "** " .. amount .. "x " .. value .. ")",
+        ["fields"] = {
+          {
+            ["name"] = "Identifier",
+            ["value"] = identifier
+          }
+        },
+        ["color"] = 15774330, -- https://www.spycolor.com/ Decimal Value
+        ["author"] = {
+          ["name"] = "[ " .. currentResourceName .. " ]",
+          ["url"] = "https://github.com/xDreamLand/dr-scratching"
+        },
+        ["timestamp"] = os.date("!%Y%m%dT%H%M%S")
+      }
+    }
+  }
+
+  if early == 'early' then
+    if Config.Webhooks.logProperties.earlyMessage then
+      webHookMessage = earlyMessage
+    else
+      return
+    end
+  elseif type == 'money' then
     if tonumber(value) == 0 and Config.Webhooks.logProperties.loseMessages then
       webHookMessage = loseMessage
     elseif tonumber(value) > 0 and Config.Webhooks.logProperties.winMessages then

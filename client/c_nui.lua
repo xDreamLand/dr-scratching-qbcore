@@ -21,9 +21,10 @@ AddEventHandler("dr-scratching:nuiOpenCard", function(key, price, amount, price_
   inMenu = true
 end)
 
-RegisterNUICallback('nuiCloseCard', function()
+RegisterNUICallback('nuiCloseCard', function(data)
 	SetNuiFocus(false, false)
 	SendNUIMessage({type = 'closeScratch'})
   TriggerEvent("dr-scratching:stopScratchingEmote")
+  TriggerServerEvent('dr-scratching:stopScratching', data.price, data.amount, data.type)
   inMenu = false
 end)

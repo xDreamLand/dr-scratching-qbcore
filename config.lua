@@ -78,6 +78,7 @@ Config.Webhooks = {
     possibleCheatingAttempt = true, -- will trigger on possible cheating attempt
     winMessages = true, -- will trigger on win (both money and item)
     loseMessages = false, -- will trigger on lose
+    earlyMessage = false -- will trigger if person doesn't fully scratch ticket
   },
 }
 

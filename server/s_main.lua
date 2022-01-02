@@ -34,6 +34,7 @@ RegisterNetEvent("dr-scratching:handler", function(returncooldown, cooldown)
   if count >= 1 then
     xPlayer.Functions.RemoveItem('scratch_ticket', 1)
     DebugPrint(('Succesfully removed scratching ticket of %s (%s).'):format(playerName, playerIdentifier))
+    TriggerClientEvent("dr-scratching:setCooldown", _source)
     if Config.ShowUsedTicketNotification then
       TriggerClientEvent('QBCore:Notify', _source, 'Succesfully used a scratching ticket', 'success')
     end
@@ -135,7 +136,16 @@ RegisterNetEvent("dr-scratching:deposit", function(key, price, amount, type)
     end
   end
   sendWebhook(playerName, playerIdentifier, type, price, priceAmount)
-  TriggerClientEvent("dr-scratching:setCooldown", _source)
+  players[tempsrc] = nil
+  return
+end)
+
+RegisterNetEvent("dr-scratching:stopScratching", function(price, amount, type)
+  local _source = source
+  local playerName, playerIdentifier = GetPlayerName(_source), GetPlayerIdentifier(_source, 0)
+  local tempsrc = tonumber(_source)
+
+  sendWebhook(playerName, playerIdentifier, type, price, amount, "early")
   players[tempsrc] = nil
   return
 end)

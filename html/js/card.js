@@ -142,7 +142,12 @@ function handleMouseUp(e) {
 
 $(document).on('keyup', function(data) {
   if (data.which == 27) {
-    $.post('https://' + resourceName + '/nuiCloseCard', JSON.stringify({}));
+    $.post('https://' + resourceName + '/nuiCloseCard',JSON.stringify({
+      key: key,
+      price: price,
+      amount: amount,
+      type: price_type
+    }));
     window.location.reload();
   }
 })
