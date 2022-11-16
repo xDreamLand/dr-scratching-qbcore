@@ -16,6 +16,6 @@ Hello, and welcome to **dr-scratching**! This is an ESX resource for FiveM which
 
 dr-scratching is made in a way that you can completely customize it. You can change the prices, win chances, and much more!
 
-**More info & Installation guide?** Please see the [**Wiki**](https://github.com/xDreamLand/dr-scratching/wiki)!
+**More info & Installation guide?** Please see the [**Wiki**](https://github.com/xDreamLand/dr-scratching-qbcore/wiki)!
 
 **dr-scratching** is a free resource, and not a paid resource like many out there. If you're willing to support the creator, please check out: [**https://buymeacoffee.com/dreamresources**](https://www.buymeacoffee.com/dreamresources)! Anything helps!
