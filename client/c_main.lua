@@ -15,11 +15,15 @@ RegisterNetEvent("dr-scratching:setCooldown", function()
 end)
 
 RegisterNetEvent("dr-scratching:startScratchingEmote", function()
-	TaskStartScenarioInPlace(GetPlayerPed(-1), "PROP_HUMAN_PARKING_METER", 0, true)
+  if not IsPedInAnyVehicle(PlayerPedId()) then
+	  TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_PARKING_METER", 0, true)
+  end
 end)
 
 RegisterNetEvent("dr-scratching:stopScratchingEmote", function()
-	ClearPedTasksImmediately(GetPlayerPed(-1))
+  if not IsPedInAnyVehicle(PlayerPedId()) then
+	  ClearPedTasksImmediately(PlayerPedId())
+  end
 end)
 
 RegisterNUICallback('deposit', function(data)
