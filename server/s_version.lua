@@ -1,6 +1,6 @@
 CreateThread(function(resourceName)
   local resourceName <const> = GetCurrentResourceName()
-  PerformHttpRequest('https://raw.githubusercontent.com/xDreamLand/dream-versions/main/dr-scratching.json', function (errorCode, resultData, resultHeaders)
+  PerformHttpRequest('https://raw.githubusercontent.com/xDreamLand/dream-versions/main/dr-scratching-qbcore.json', function (errorCode, resultData, resultHeaders)
     if not resultData then return end
     local retData <const> = json.decode(resultData)
     local version <const> = retData["version"]
