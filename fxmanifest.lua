@@ -3,7 +3,7 @@ game 'gta5'
 
 description 'Start scratching! Odds Are Meant To Be Beaten'
 author 'Dream Resources' -- https://forum.cfx.re/u/xDreamLand/summary
-version '3.2.0'
+version '3.3.0'
 repository 'https://github.com/xDreamLand/dr-scratching-qbcore'
 
 lua54 'yes'
